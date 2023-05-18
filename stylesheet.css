@@ -1,0 +1,52 @@
+body {
+  background-color: gray;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+header {
+  background-color: blue;
+  text-align: left;
+  color: white; /* Add text color for better visibility */
+  padding: 10px; /* Add padding for spacing */
+}
+form{
+  text-align: center;
+}
+h1{
+  background-color: blue;
+  margin: 0; /* Remove default margin for heading */
+}
+
+table {
+  width: 80%; 
+  border-collapse: collapse; 
+  background-color: white;
+  margin-left: 10%;
+  margin-top: 50px;
+}
+
+th, td {
+  padding: 10px; /* Add padding for spacing */
+}
+
+th {
+  background-color: blue;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: yellow; /* Use a lighter shade for even rows */
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+
+tr {
+  text-align: center;
+}
+
+td {
+  border: 1px solid #ccc; /* Add borders to table cells for better readability */
+}
