@@ -9,9 +9,11 @@ function App() {
 }
 
 const game = new phaser.Game({
-    parent: 'game-container'
+    parent: 'game-container',
+    scene: [Preload]
 });
 
-game.scene.add(SCENE_KEYS.preload_scene, Preload);
+// game.scene.add(SCENE_KEYS.preload_scene, Preload);
+// game.scene.start(SCENE_KEYS.preload_scene);
 
 export default App
