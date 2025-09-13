@@ -9,8 +9,18 @@ function App() {
 }
 
 const game = new phaser.Game({
-    parent: 'game-container',
+    type: phaser.CANVAS,
+    pixelArt: false,
+    backgroundColor: "#000000",
+    scale: {
+        parent: 'game-container',
+        width:750,
+        height:500,
+        mode: phaser.Scale.FIT,
+        autoCenter: phaser.Scale.CENTER_BOTH
+    },
     scene: [Preload]
+    
 });
 
 // game.scene.add(SCENE_KEYS.preload_scene, Preload);
