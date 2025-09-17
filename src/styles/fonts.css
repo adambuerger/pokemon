@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Discord';
+    src: local('Discord'), url(./fonts/DiscordGinto/ABCGintoDiscord-Regular.ttf) format('ttf');
+}
+@font-face {
+    font-family: 'Discord Bold';
+    src: local('Discor Bold'), url(./fonts/DiscordNord/ABCGintoDiscordNord-Bold.ttf) format('ttf');
+}
