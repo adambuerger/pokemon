@@ -1,9 +1,12 @@
-html,
-body,
-.container {
-    margin: 0px;
+@font-face {
+    font-family: 'Discord';
+    src: local('Discord'), url(./fonts/DiscordGinto/ABCGintoDiscord-Medium.ttf) format('ttf');
+}
+body{
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
-    background-color: #d7d7d7;
+}
+canvas{
+    border: 10px solid #000000;
+    border-radius: 50px;
 }

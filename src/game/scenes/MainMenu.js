@@ -1,7 +1,8 @@
-import { EventBus } from '../EventBus';
-import { Scene } from 'phaser';
+import { EventBus, phaser } from '../phaser.js';
+import { background_keys, ui_keys } from '../asset_keys.js';
+import '../../styles/fonts.css';
 
-export class MainMenu extends Scene
+export class MainMenu extends phaser.Scene
 {
     logoTween;
 
@@ -12,15 +13,30 @@ export class MainMenu extends Scene
 
     create ()
     {
-        this.add.image(512, 384, 'background');
+        this.add.image(0, 0, background_keys.MAP).setOrigin(0);
+        this.add.image(150, 100, ui_keys.WELCOME).setOrigin(0);
 
-        this.logo = this.add.image(512, 300, 'logo').setDepth(100);
 
-        this.add.text(512, 460, 'Main Menu', {
-            fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',
-            stroke: '#000000', strokeThickness: 8,
-            align: 'center'
-        }).setDepth(100).setOrigin(0.5);
+        const StartMessage = this.add.text(
+            375, 
+            350, 
+            'Press Start', {
+                fontFamily: 'Arial Black', 
+                fontSize: 38, 
+                color: '#ffffff',
+                stroke: '#000000', 
+                strokeThickness: 8,
+                align: 'center'
+            }
+        ).setDepth(100).setOrigin(0.5);
+        this.tweens.add({
+            targets: StartMessage,
+            alpha: {from: 1, to: 0.1},
+            ease: 'linear',
+            duration: 1000,
+            repeat: -1,
+            yoyo: true
+        });
         
         EventBus.emit('current-scene-ready', this);
     }
@@ -34,39 +50,5 @@ export class MainMenu extends Scene
         }
 
         this.scene.start('Game');
-    }
-
-    moveLogo (reactCallback)
-    {
-        if (this.logoTween)
-        {
-            if (this.logoTween.isPlaying())
-            {
-                this.logoTween.pause();
-            }
-            else
-            {
-                this.logoTween.play();
-            }
-        }
-        else
-        {
-            this.logoTween = this.tweens.add({
-                targets: this.logo,
-                x: { value: 750, duration: 3000, ease: 'Back.easeInOut' },
-                y: { value: 80, duration: 1500, ease: 'Sine.easeOut' },
-                yoyo: true,
-                repeat: -1,
-                onUpdate: () => {
-                    if (reactCallback)
-                    {
-                        reactCallback({
-                            x: Math.floor(this.logo.x),
-                            y: Math.floor(this.logo.y)
-                        });
-                    }
-                }
-            });
-        }
     }
 }

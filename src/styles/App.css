@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Ginto';
+    src: url(fonts/DiscordGinto/ABCGintoDiscord-Regular.ttf) format('ttf');
+}
+@font-face {
+    font-family: 'Nord';
+    src: url(fonts/DiscordNord/ABCGintoDiscordNord-Bold.ttf) format('ttf');
+}
+.App{
+    max-height: 100%;
+}
+.sidebar{
+    font-family: 'Ginto', sans-serif;
+    background-color: #5865F2;
+    text-align: center;
+    box-shadow: 10px 0px 10px #000000;
+    z-index: 10;
+}
+.content{
+    padding: 30px;
+    background-color: #e0e3ff;
+    
+}

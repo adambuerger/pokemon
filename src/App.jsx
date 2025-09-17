@@ -1,29 +1,43 @@
 import { useRef, useState } from 'react';
+import { PhaserGame } from './PhaserGame';
+import Sidebar from './Components/Sidebar.jsx'
+import './styles/App.css';
+import Footer from './Components/Footer.jsx';
 
-import phaser from './lib/phaser.js'
-import { SCENE_KEYS } from './scenes/scene-keys.js'
-import Preload from './scenes/preload-scene.js';
+const App = () => {
 
-function App() {
-
-}
-
-const game = new phaser.Game({
-    type: phaser.CANVAS,
-    pixelArt: false,
-    backgroundColor: "#000000",
-    scale: {
-        parent: 'game-container',
-        width:750,
-        height:500,
-        mode: phaser.Scale.FIT,
-        autoCenter: phaser.Scale.CENTER_BOTH
-    },
-    scene: [Preload]
+    // The sprite can only be moved in the MainMenu Scene
+    const [canMoveSprite, setCanMoveSprite] = useState(true);
     
-});
+    //  References to the PhaserGame component (game and scene are exposed)
+    const phaserRef = useRef();
+    const [spritePosition, setSpritePosition] = useState({ x: 0, y: 0 });
 
-// game.scene.add(SCENE_KEYS.preload_scene, Preload);
-// game.scene.start(SCENE_KEYS.preload_scene);
+    // Event emitted from the PhaserGame component
+    const currentScene = (scene) => {
+
+        setCanMoveSprite(scene.scene.key !== 'MainMenu');
+        
+    }
+
+    return (
+        <div className="app h-100">
+            <div className="row">
+                <div className="col-3 sidebar">
+                    <Sidebar />
+                </div>
+
+                <div className="col-9 content">
+                    <div className='row'>
+                        <PhaserGame ref={phaserRef} currentActiveScene={currentScene}/>
+                    </div>
+                    <div className="row">
+                        <Footer />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 export default App

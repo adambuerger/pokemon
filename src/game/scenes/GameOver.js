@@ -1,7 +1,6 @@
-import { EventBus } from '../EventBus';
-import { Scene } from 'phaser';
+import { EventBus, phaser } from '../phaser.js';
 
-export class GameOver extends Scene
+export class GameOver extends phaser.Scene
 {
     constructor ()
     {
