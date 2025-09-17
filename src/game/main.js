@@ -12,9 +12,9 @@ const config = {
     width: 750,
     height: 500,
     parent: 'game-container',
-    backgroundColor: '#5865F2',
+    backgroundColor: '#1f1f1f',
     scale: { 
-        autoCenter: phaser.Scale.CENTER_BOTH,
+        autoCenter: phaser.Scale.CENTER_BOTH
     },
     scene: [
         Boot,

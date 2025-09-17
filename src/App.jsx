@@ -11,7 +11,6 @@ const App = () => {
     
     //  References to the PhaserGame component (game and scene are exposed)
     const phaserRef = useRef();
-    const [spritePosition, setSpritePosition] = useState({ x: 0, y: 0 });
 
     // Event emitted from the PhaserGame component
     const currentScene = (scene) => {
@@ -21,17 +20,16 @@ const App = () => {
     }
 
     return (
-        <div className="app h-100">
+        <div className="app">
             <div className="row">
-                <div className="col-3 sidebar">
+                <div className="col-2 sidebar">
                     <Sidebar />
                 </div>
-
-                <div className="col-9 content">
+                <div className="col-10 content">
                     <div className='row'>
                         <PhaserGame ref={phaserRef} currentActiveScene={currentScene}/>
                     </div>
-                    <div className="row">
+                    <div className="row footer">
                         <Footer />
                     </div>
                 </div>

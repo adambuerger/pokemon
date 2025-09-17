@@ -3,8 +3,8 @@ import '../styles/App.css'
 
 const Sidebar = () => {
   return (
-    <div>
-        <h3 className="Nord">Menu</h3>
+    <div className='h-100'>
+        <h3>Menu</h3>
     </div>
   )
 }

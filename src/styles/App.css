@@ -7,17 +7,24 @@
     src: url(fonts/DiscordNord/ABCGintoDiscordNord-Bold.ttf) format('ttf');
 }
 .App{
-    max-height: 100%;
+    overflow: hidden;
+    display: flex;
 }
 .sidebar{
     font-family: 'Ginto', sans-serif;
-    background-color: #5865F2;
+    background-color: #000000;
     text-align: center;
-    box-shadow: 10px 0px 10px #000000;
+    box-shadow: 10px 0px 10px #5865f2;
     z-index: 10;
+    color: #5865f2;
 }
 .content{
     padding: 30px;
-    background-color: #e0e3ff;
+    background-color: #1f1f1f;
     
+}
+.footer{
+    padding: 0;
+    margin: 0;
+    background-color: #19175c;
 }
